@@ -43,11 +43,6 @@ class AssertionModel extends AbstractOpenBadge
     protected $verification = [
         "type" => "HostedBadge"
     ];
-    public function setEmail($email)
-    {
-        $this->recipient['identity'] = $email;
-        return $this;
-    }
 
     /**
      * @var string uri of image baked
@@ -66,7 +61,6 @@ class AssertionModel extends AbstractOpenBadge
     /**
      * Set Issued indicate when the badge was obtained
      *@param Datetime $issuedOn
-     *@return $this
      */
     public function setIssuedOn(DateTime $issuedOn): self
     {
@@ -85,8 +79,6 @@ class AssertionModel extends AbstractOpenBadge
 
     /**
      * Set Badge of this assertion
-     *@param BadgeModel
-     *@return $this
      */
     public function setBadge(string $badge): self
     {
@@ -107,10 +99,8 @@ class AssertionModel extends AbstractOpenBadge
     /**
      * Set recipient of this assertion
      * This is an identity
-     *@param Identity
-     *@return $this
      */
-    public function setRecipient($recipient): self
+    public function setRecipient(array $recipient): self
     {
         $this->recipient = $recipient;
 
@@ -126,11 +116,10 @@ class AssertionModel extends AbstractOpenBadge
     }
 
     /**
-     * Instructions for third parties to verify this assertion. (Alias “verify” may be used in context.)
-     *@param Verification
-     *@return $this
+     * Instructions for third parties to verify this assertion.
+     * (Alias “verify” may be used in context.)
      */
-    public function setVerification($verification): self
+    public function setVerification(array $verification): self
     {
         $this->verification = $verification;
 
@@ -152,6 +141,24 @@ class AssertionModel extends AbstractOpenBadge
     {
         $this->image = $image;
 
+        return $this;
+    }
+
+    /**
+     * Get the value of type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set Email for recipient
+     *@param string $email
+     */
+    public function setEmailRecipient(string $email): self
+    {
+        $this->recipient['identity'] = $email;
         return $this;
     }
 }

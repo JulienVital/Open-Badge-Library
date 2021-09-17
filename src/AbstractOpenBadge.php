@@ -2,7 +2,7 @@
 
 namespace JulienV\Openbadge;
 
-class AbstractOpenBadge implements \JsonSerializable
+abstract class AbstractOpenBadge implements \JsonSerializable
 {
     protected $id;
     protected $type;
