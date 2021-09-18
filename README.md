@@ -2,13 +2,13 @@
 
 [![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
 
-> Le badge a de l'avenir !
-> Ma curiosité et mon envie de développer de nouvelles compétences m'ont poussé à comprendre son fonctionnement.
-> Voici donc une librairie permettant de creer et de manipuler des badges !
+>The library is being created.
+>It will provide a list of classes to create and manipulate openbadge with PHP.
+>By following the implementations
+>Open Badges v2.0
+>IMS Final Release
 
 ## 🏠 [Homepage](https://github.com/JulienVital/Open-Badge-Library)
-
-## ✨ [Demo ](https://github.com/JulienVital/openbadge)
 
 ## Author
 
