@@ -13,9 +13,10 @@ use JulienV\Openbadge\Interfaces\AssertionInterface;
 class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 {
     /**
-     *If using hosted verification, this should be the URI where the assertion is accessible.
+     * If using hosted verification, this should be the URI where the assertion is accessible.
      * For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
-     *@var string Unique IRI for the Assertion.
+     * 
+     * @var string Unique IRI for the Assertion.
      */
     protected $id;
 
@@ -28,9 +29,10 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 
     /** TODO: use 	IdentityObject
      * The recipient of the achievement.
-     * 	IdentityObject
-    *@var array<mixed>
-    */
+     * IdentityObject
+     * 
+     * @var array<mixed>
+     */
     protected $recipient = [
         "type" => "email",
         "hashed"=> false,
@@ -38,15 +40,16 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     ];
 
     /**
-     * TODO:
-     *IRI or document that describes the type of badge being awarded. 
-     *If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.
-     *@var string
+     * TODO: Badgeclass
+     * IRI or document that describes the type of badge being awarded.
+     * If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.
+     * 
+     * @var string
      */
     protected $badge;
 
     /**
-     * TODO: switch VerificationObject
+     * TODO: switch VerificationObject Document
      * Instructions for third parties to verify this assertion.
      * (Alias “verify” may be used in context.)
      * @var array<mixed>
@@ -58,7 +61,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Open Badges v2.0 requires string ISO 8601 values with time zone indicators.
      * For example, 2016-12-31T23:59:59+00:00 is a valid ISO 8601
-     *@var Datetime indicate when the badge was obtained
+     * @var Datetime indicate when the badge was obtained
      */
     protected $issuedOn ;
 
@@ -73,39 +76,39 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 
     /**
      * TODO: Evidence Object
-     *IRI or document describing the work that the recipient did to earn the achievement. 
-     *This can be a page that links out to other pages if linking directly to the work is infeasible.
+     * IRI or document describing the work that the recipient did to earn the achievement.
+     * This can be a page that links out to other pages if linking directly to the work is infeasible.
      * @var mixed uri of image baked
      */
     protected $evidence;
 
     /**
-     * 	Text or Markdown Text
-     * A narrative that connects multiple pieces of evidence. 
+     * Text or Markdown Text
+     * A narrative that connects multiple pieces of evidence.
      * Likely only present at this location if evidence is a multi-value array.
      * @var string uri of image baked
      */
     protected $narrative;
 
     /**
-     *If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. 
-     *After this time, the badge should be considered expired.
-     * @var DateTime 
+     * If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid.
+     * After this time, the badge should be considered expired.
+     * @var DateTime
      */
     protected $expires;
 
     /**
-     *Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted.
-     * @var bool 
+     * Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted.
+     * @var bool
      */
     protected $revoked;
 
     /**
      * Optional published reason for revocation, if revoked.
-     * @var string 
+     * @var string
      */
     protected $revocationReason;
-    
+
 
     /**
      * @return Datetime
@@ -117,7 +120,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 
     /**
      * Set Issued indicate when the badge was obtained
-     *@param Datetime $issuedOn
+     * @param Datetime $issuedOn
      */
     public function setIssuedOn(DateTime $issuedOn): self
     {
@@ -166,7 +169,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * @return array<mixed>
      */
-    public function getVerification()
+    public function getVerification(): array
     {
         return $this->verification;
     }
@@ -212,7 +215,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 
     /**
      * Set Email for recipient
-     *@param string $email
+     * @param string $email
      */
     public function setEmailRecipient(string $email): self
     {
@@ -279,7 +282,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
      * Get the value of expires
      * @return \DateTime
      */
-    public function getExpires():DateTime
+    public function getExpires(): DateTime
     {
         return $this->expires;
     }
@@ -298,7 +301,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Get the value of revoked
      */
-    public function getRevoked():bool
+    public function getRevoked(): bool
     {
         return $this->revoked;
     }
@@ -316,13 +319,13 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Get the value of revocationReason
      */
-    public function getRevocationReason():string
+    public function getRevocationReason(): string
     {
         return $this->revocationReason;
     }
 
     /**
-     * 
+     *
      * Set the value of revocationReason
      */
     public function setRevocationReason(string $revocationReason): self
