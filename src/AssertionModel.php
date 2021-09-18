@@ -8,24 +8,29 @@ namespace JulienV\Openbadge;
  */
 use DateTime;
 use JulienV\Openbadge\AbstractOpenBadge;
+use JulienV\Openbadge\Interfaces\AssertionInterface;
 
-class AssertionModel extends AbstractOpenBadge
+class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 {
     /**
-     *@var string Unique IRI for the Assertion. If using hosted verification, this should be the URI where the assertion is accessible. For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+     *If using hosted verification, this should be the URI where the assertion is accessible.
+     * For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
+     *@var string Unique IRI for the Assertion.
      */
     protected $id;
 
+    /**
+     * Simply the string 'Assertion'.
+     *
+     * @var string
+     */
     protected $type = 'Assertion';
 
-    /**
-     *@var Datetime indicate when the badge was obtained
-     */
-    protected $issuedOn ;
-
-    /**
-     *@var Identity The recipient of the achievement.
-     */
+    /** TODO: use 	IdentityObject
+     * The recipient of the achievement.
+     * 	IdentityObject
+    *@var array<mixed>
+    */
     protected $recipient = [
         "type" => "email",
         "hashed"=> false,
@@ -33,22 +38,74 @@ class AssertionModel extends AbstractOpenBadge
     ];
 
     /**
+     * TODO:
+     *IRI or document that describes the type of badge being awarded. 
+     *If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.
      *@var string
-    */
+     */
     protected $badge;
 
     /**
-     * @var Verification
+     * TODO: switch VerificationObject
+     * Instructions for third parties to verify this assertion.
+     * (Alias “verify” may be used in context.)
+     * @var array<mixed>
      */
     protected $verification = [
         "type" => "HostedBadge"
     ];
 
     /**
-     * @var string uri of image baked
+     * Open Badges v2.0 requires string ISO 8601 values with time zone indicators.
+     * For example, 2016-12-31T23:59:59+00:00 is a valid ISO 8601
+     *@var Datetime indicate when the badge was obtained
+     */
+    protected $issuedOn ;
+
+
+    /**
+     * TODO: image Object
+     * IRI or document representing an image representing this user’s achievement.
+     * This must be a PNG or SVG image, and should be prepared via the Baking specification.
+     * @var mixed uri of image baked
      */
     protected $image;
 
+    /**
+     * TODO: Evidence Object
+     *IRI or document describing the work that the recipient did to earn the achievement. 
+     *This can be a page that links out to other pages if linking directly to the work is infeasible.
+     * @var mixed uri of image baked
+     */
+    protected $evidence;
+
+    /**
+     * 	Text or Markdown Text
+     * A narrative that connects multiple pieces of evidence. 
+     * Likely only present at this location if evidence is a multi-value array.
+     * @var string uri of image baked
+     */
+    protected $narrative;
+
+    /**
+     *If the achievement has some notion of expiry, this indicates a timestamp when a badge should no longer be considered valid. 
+     *After this time, the badge should be considered expired.
+     * @var DateTime 
+     */
+    protected $expires;
+
+    /**
+     *Defaults to false if Assertion is not referenced from a revokedAssertions list and may be omitted.
+     * @var bool 
+     */
+    protected $revoked;
+
+    /**
+     * Optional published reason for revocation, if revoked.
+     * @var string 
+     */
+    protected $revocationReason;
+    
 
     /**
      * @return Datetime
@@ -89,16 +146,15 @@ class AssertionModel extends AbstractOpenBadge
 
 
     /**
-     * Get the value of recipient
+     * @return array<mixed>
      */
-    public function getRecipient()
+    public function getRecipient(): array
     {
         return $this->recipient;
     }
 
     /**
-     * Set recipient of this assertion
-     * This is an identity
+     * @param array<mixed> $recipient
      */
     public function setRecipient(array $recipient): self
     {
@@ -108,7 +164,7 @@ class AssertionModel extends AbstractOpenBadge
     }
 
     /**
-     * Get the value of verification
+     * @return array<mixed>
      */
     public function getVerification()
     {
@@ -118,6 +174,8 @@ class AssertionModel extends AbstractOpenBadge
     /**
      * Instructions for third parties to verify this assertion.
      * (Alias “verify” may be used in context.)
+     * @param array<mixed> $verification
+     *
      */
     public function setVerification(array $verification): self
     {
@@ -129,7 +187,7 @@ class AssertionModel extends AbstractOpenBadge
     /**
      * Get URI for badge baked
      */
-    public function getImage()
+    public function getImage(): string
     {
         return $this->image;
     }
@@ -147,7 +205,7 @@ class AssertionModel extends AbstractOpenBadge
     /**
      * Get the value of type
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -159,6 +217,118 @@ class AssertionModel extends AbstractOpenBadge
     public function setEmailRecipient(string $email): self
     {
         $this->recipient['identity'] = $email;
+        return $this;
+    }
+    /**
+     * Get the value of id
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * Set the value of id
+     */
+    public function setId(string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     * Get the value of evidence
+     */
+    public function getEvidence()
+    {
+        return $this->evidence;
+    }
+
+    /**
+     * Set the value of evidence
+     */
+    public function setEvidence(mixed $evidence): self
+    {
+        $this->evidence = $evidence;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of narrative
+     */
+    public function getNarrative()
+    {
+        return $this->narrative;
+    }
+
+    /**
+     * Set the value of narrative
+     */
+    public function setNarrative(string $narrative): self
+    {
+        $this->narrative = $narrative;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of expires
+     * @return \DateTime
+     */
+    public function getExpires():DateTime
+    {
+        return $this->expires;
+    }
+
+    /**
+     * Set the value of expires
+     */
+    public function setExpires(DateTime $expires): self
+    {
+        $this->expires = $expires;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of revoked
+     */
+    public function getRevoked():bool
+    {
+        return $this->revoked;
+    }
+
+    /**
+     * Set the value of revoked
+     */
+    public function setRevoked(bool $isRevoked): self
+    {
+        $this->revoked = $isRevoked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of revocationReason
+     */
+    public function getRevocationReason():string
+    {
+        return $this->revocationReason;
+    }
+
+    /**
+     * 
+     * Set the value of revocationReason
+     */
+    public function setRevocationReason(string $revocationReason): self
+    {
+        $this->revocationReason = $revocationReason;
+
         return $this;
     }
 }
