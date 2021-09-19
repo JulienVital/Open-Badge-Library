@@ -2,7 +2,7 @@
 
 namespace JulienV\Openbadge\Interfaces;
 
-interface AssertionInterface 
+interface AssertionInterface
 {
     public function getId();
     public function getIssuedOn();
@@ -10,5 +10,4 @@ interface AssertionInterface
     public function getRecipient();
     public function getBadge();
     public function getVerification();
-
 }

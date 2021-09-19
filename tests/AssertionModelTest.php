@@ -4,6 +4,7 @@ namespace JulienV\Openbadge\Tests;
 
 use DateTime;
 use JulienV\Openbadge\AssertionModel;
+use JulienV\Openbadge\BadgeModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
@@ -53,12 +54,12 @@ class AssertionModelTest extends TestCase
 
     public function testBadge()
     {
-        $this->assertion->setBadge('badgeTest');
+        $badgeTest = new BadgeModel();
+        $this->assertion->setBadge($badgeTest);
 
-        $this->assertTrue($this->assertion->getBadge()=== 'badgeTest');
+        $this->assertTrue($this->assertion->getBadge()=== $badgeTest);
         $this->expectException(TypeError::class);
-        //@php-ignore
-        $this->assertion->setBadge(false);
+        $this->assertion->setBadge('badgetest');
     }
 
     public function testVerification()

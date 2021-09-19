@@ -9,13 +9,14 @@ namespace JulienV\Openbadge;
 use DateTime;
 use JulienV\Openbadge\AbstractOpenBadge;
 use JulienV\Openbadge\Interfaces\AssertionInterface;
+use JulienV\Openbadge\Interfaces\BadgeClassInterface;
 
 class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 {
     /**
      * If using hosted verification, this should be the URI where the assertion is accessible.
      * For signed Assertions, it is recommended to use a UUID in the urn:uuid namespace.
-     * 
+     *
      * @var string Unique IRI for the Assertion.
      */
     protected $id;
@@ -30,7 +31,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /** TODO: use 	IdentityObject
      * The recipient of the achievement.
      * IdentityObject
-     * 
+     *
      * @var array<mixed>
      */
     protected $recipient = [
@@ -40,11 +41,10 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     ];
 
     /**
-     * TODO: Badgeclass
      * IRI or document that describes the type of badge being awarded.
      * If an HTTP/HTTPS IRI The endpoint should be a BadgeClass.
-     * 
-     * @var string
+     *
+     * @var BadgeClassInterface
      */
     protected $badge;
 
@@ -132,7 +132,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Get the value of badge
      */
-    public function getBadge(): string
+    public function getBadge(): BadgeClassInterface
     {
         return $this->badge;
     }
@@ -140,7 +140,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Set Badge of this assertion
      */
-    public function setBadge(string $badge): self
+    public function setBadge(BadgeClassInterface $badge): self
     {
         $this->badge = $badge;
 
