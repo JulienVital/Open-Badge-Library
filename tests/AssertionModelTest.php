@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace JulienV\Openbadge\Tests;
 
 use DateTime;
@@ -66,10 +68,10 @@ class AssertionModelTest extends TestCase
     {
         $verification = ["type" => "tested"];
         $this->assertion->setVerification($verification);
-        
+
         $this->assertTrue($this->assertion->getVerification()=== $verification);
         $this->expectException(TypeError::class);
-        
+
         /**
          * @return \TypeError
          */
@@ -80,7 +82,7 @@ class AssertionModelTest extends TestCase
     {
         $this->assertion->setImage('genere/image.png');
         $this->assertTrue($this->assertion->getImage()=== 'genere/image.png');
-        
+
         $this->expectException(TypeError::class);
         $this->assertion->setImage(false);
     }
@@ -89,31 +91,28 @@ class AssertionModelTest extends TestCase
     {
         $this->assertion->setId('test Id');
         $this->assertTrue($this->assertion->getId()=== 'test Id');
-        
+
         $this->expectException(TypeError::class);
         $this->assertion->setImage(array());
     }
 
     public function testEvidence()
     {
-        $exampleObject = new DateTime(); 
+        $exampleObject = new DateTime();
         $this->assertion->setEvidence('test evidence');
         $this->assertTrue($this->assertion->getEvidence()=== 'test evidence');
 
         $this->assertion->setEvidence($exampleObject);
         $this->assertTrue($this->assertion->getEvidence()=== $exampleObject);
-
     }
 
     public function testNarrative()
     {
-        
         $this->assertion->setNarrative('test narrative');
         $this->assertTrue($this->assertion->getNarrative()=== 'test narrative');
 
         $this->expectException(TypeError::class);
         $this->assertion->setNarrative(array());
-
     }
 
     public function testExpirse()
@@ -124,7 +123,6 @@ class AssertionModelTest extends TestCase
 
         $this->expectException(TypeError::class);
         $this->assertion->setExpires('date');
-
     }
 
     public function testRevoked()
@@ -137,7 +135,6 @@ class AssertionModelTest extends TestCase
 
         $this->expectException(TypeError::class);
         $this->assertion->setRevoked('true');
-
     }
 
     public function testRevocationReason()
@@ -147,6 +144,5 @@ class AssertionModelTest extends TestCase
 
         $this->expectException(TypeError::class);
         $this->assertion->setRevocationReason(array());
-
     }
 }

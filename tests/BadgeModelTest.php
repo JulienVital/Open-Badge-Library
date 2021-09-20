@@ -1,8 +1,9 @@
 <?php
+
 declare(strict_types=1);
+
 namespace JulienV\Openbadge\Tests;
 
-use DateTime;
 use JulienV\Openbadge\BadgeModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
@@ -20,13 +21,14 @@ class BadgeModelTest extends TestCase
     {
         $this->badgeModel->setId('test Id');
         $this->assertTrue($this->badgeModel->getId()=== 'test Id');
-        
+
         $this->expectException(TypeError::class);
-        $this->badgeModel->setImage(array());
+        $this->badgeModel->setId(array());
     }
 
     public function testTag()
-    {   $badgeModel = new BadgeModel();
+    {
+        $badgeModel = new BadgeModel();
         $badgeModel->setTags(['test','array']);
 
         $this->assertTrue($badgeModel->getTags()=== ['test','array']);
@@ -69,7 +71,7 @@ class BadgeModelTest extends TestCase
         $badgeModel->setName(array());
     }
 
-    
+
     public function testIssuer()
     {
         $badgeModel = new BadgeModel();
@@ -80,14 +82,13 @@ class BadgeModelTest extends TestCase
         $badgeModel->setIssuer(array());
     }
 
-    
+
     public function testImage()
     {
         $badgeModel = new BadgeModel();
         $badgeModel->setImage('testImage');
 
         $this->assertTrue($badgeModel->getImage()=== 'testImage');
-
     }
 
     public function testDescription()
@@ -99,6 +100,4 @@ class BadgeModelTest extends TestCase
         $this->expectException(TypeError::class);
         $badgeModel->setDescription(array());
     }
-
-
 }
