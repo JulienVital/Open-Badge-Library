@@ -4,10 +4,9 @@ namespace JulienV\Openbadge;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
-
 class VerificationObject extends AbstractOpenBadge
 {
-    /** 
+    /**
      * Supported values for single assertion verification are HostedBadge and SignedBadge
      * @var string */
     private $type;
@@ -28,7 +27,7 @@ class VerificationObject extends AbstractOpenBadge
     /**
      * Get the value of type
      */
-    public function getType() :string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -46,7 +45,7 @@ class VerificationObject extends AbstractOpenBadge
     /**
      * Get the value of startsWith
      */
-    public function getStartsWith():string
+    public function getStartsWith(): string
     {
         return $this->startsWith;
     }
@@ -64,7 +63,7 @@ class VerificationObject extends AbstractOpenBadge
     /**
      * Get the value of allowedOrigins
      */
-    public function getAllowedOrigins():string
+    public function getAllowedOrigins(): string
     {
         return $this->allowedOrigins;
     }
@@ -82,7 +81,7 @@ class VerificationObject extends AbstractOpenBadge
     /**
      * Get the value of verificationProperty
      */
-    public function getVerificationProperty():string
+    public function getVerificationProperty(): string
     {
         return $this->verificationProperty;
     }

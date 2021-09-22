@@ -4,37 +4,36 @@ namespace JulienV\Openbadge;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
-
 class Evidence extends AbstractOpenBadge
 {
     /**
      * The URI of a webpage presenting evidence of achievement.
-     *  @var string	
+     *  @var string
      **/
-    private $id ; 
+    private $id ;
 
     /**
      * A narrative that describes the evidence and process of achievement that led to an Assertion.
      * Text or Markdown Text
-     *  @var string	
+     *  @var string
      */
     private $narrative;
 
     /**
      * 	A descriptive title of the evidence.
-     *  @var string	
+     *  @var string
      */
     private $name ;
 
     /**
     * A longer description of the evidence.
-    *  @var string	
+    *  @var string
     */
     private $description ;
 
     /**
-     * A string that describes the type of evidence. For example, Poetry, Prose, Film. 
-     *  @var string	
+     * A string that describes the type of evidence. For example, Poetry, Prose, Film.
+     *  @var string
      */
     private $genre ;
 
@@ -49,7 +48,7 @@ class Evidence extends AbstractOpenBadge
     /**
      * Get the value of id
      */
-    public function getId():string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -157,7 +156,4 @@ class Evidence extends AbstractOpenBadge
 
         return $this;
     }
-
-
-
 }

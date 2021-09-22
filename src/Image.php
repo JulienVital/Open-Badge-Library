@@ -4,7 +4,6 @@ namespace JulienV\Openbadge;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
-
 class Image extends AbstractOpenBadge
 {
     /**
@@ -13,16 +12,16 @@ class Image extends AbstractOpenBadge
      * @var string
      */
     private $id ;
-    
-    
+
+
     /**
      * Text	The caption for the image.
      *
      * @var string
      */
     private $caption ;
-    
-    
+
+
     /**
      * @id: Profile	The author of the image, if desired.
      *
@@ -34,7 +33,7 @@ class Image extends AbstractOpenBadge
     /**
      * Get the value of id
      */
-    public function getId():string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -52,7 +51,7 @@ class Image extends AbstractOpenBadge
     /**
      * Get the value of caption
      */
-    public function getCaption():string
+    public function getCaption(): string
     {
         return $this->caption;
     }
@@ -70,7 +69,7 @@ class Image extends AbstractOpenBadge
     /**
      * Get the value of author
      */
-    public function getAuthor():string
+    public function getAuthor(): string
     {
         return $this->author;
     }

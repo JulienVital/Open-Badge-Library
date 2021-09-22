@@ -62,7 +62,6 @@ class BadgeModelTest extends TestCase
         $badgeModel->setAlignment($alignment);
 
         $this->assertTrue($badgeModel->getAlignment()=== $alignment);
-
     }
 
     public function testName()

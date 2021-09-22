@@ -80,7 +80,7 @@ class IssuerModel extends AbstractOpenBadge implements IssuerInterface
     /**
      * Get the value of type
      */
-    public function getType():string
+    public function getType(): string
     {
         return $this->type;
     }

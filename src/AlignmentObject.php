@@ -4,11 +4,10 @@ namespace JulienV\Openbadge;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
-
 class AlignmentObject extends AbstractOpenBadge
 {
     /** @var string	Name of the alignment. **/
-    private $targetName ; 
+    private $targetName ;
 
     /** @var string	URL linking to the official description of the alignment target, for example an individual standard within an educational framework. **/
     private $targetUrl ;
@@ -25,7 +24,7 @@ class AlignmentObject extends AbstractOpenBadge
     /**
      * Get the value of targetName
      */
-    public function getTargetName():string
+    public function getTargetName(): string
     {
         return $this->targetName;
     }

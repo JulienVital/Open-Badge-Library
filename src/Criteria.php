@@ -7,15 +7,15 @@ use JulienV\Openbadge\AbstractOpenBadge;
 class Criteria extends AbstractOpenBadge
 {
     /**
-     * The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass. 
+     * The URI of a webpage that describes in a human-readable format the criteria for the BadgeClass.
      *
      * @var string
      */
     private $id ;
-    
+
     /**
      * A narrative of what is needed to earn the badge.
-     * @var string text or Markdown Text 
+     * @var string text or Markdown Text
      */
     private $narrative ;
 
@@ -24,7 +24,7 @@ class Criteria extends AbstractOpenBadge
     /**
      * Get the value of id
      */
-    public function getId():string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -42,7 +42,7 @@ class Criteria extends AbstractOpenBadge
     /**
      * Get the value of narrative
      */
-    public function getNarrative():string
+    public function getNarrative(): string
     {
         return $this->narrative;
     }
