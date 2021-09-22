@@ -3,8 +3,10 @@
 namespace JulienV\Openbadge\BadgeClasses;
 
 use JulienV\Openbadge\AbstractOpenBadge;
+use JulienV\Openbadge\AlignmentObject;
 use JulienV\Openbadge\Interfaces\BadgeClassInterface;
 use JulienV\Openbadge\Profiles\IssuerModel;
+use JulienV\Openbadge\Criteria;
 
 class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
 {
@@ -35,7 +37,7 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
     protected $image ;
 
     /**
-     * @var mixed URI or embedded criteria document describing how to earn the achievement.
+     * @var Criteria URI or embedded criteria document describing how to earn the achievement.
      * */
     protected $criteria ;
 
@@ -47,11 +49,11 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
 
 
 
-    /** @var Alignment|Alignement[] An object describing which objectives or educational standards this badge aligns to, if any.*/
+    /** @var AlignmentObject An object describing which objectives or educational standards this badge aligns to, if any.*/
     protected $alignment ;
 
     /**
-     * @var array[] A tag that describes the type of achievement.
+     * @var string[] A tag that describes the type of achievement.
      * */
     protected $tags ;
 
@@ -89,18 +91,18 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
     }
 
     /**
-     * @return mixed[]
+     * @return AlignmentObject
      */
-    public function getAlignment()
+    public function getAlignment(): alignmentObject
     {
         return $this->alignment;
     }
 
     /**
      * Set the value of alignment
-     * @param string[] $alignment
+     * @param AlignmentObject $alignment
      */
-    public function setAlignment(array $alignment): self
+    public function setAlignment(AlignmentObject $alignment): self
     {
         $this->alignment = $alignment;
 
@@ -116,17 +118,17 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
     }
 
     /**
-     * @return string[]
+     * @return Criteria
      */
-    public function getCriteria(): array
+    public function getCriteria(): Criteria
     {
         return $this->criteria;
     }
 
     /**
-     * @param string[] $criteria
+     * @param Criteria $criteria
      */
-    public function setCriteria(array $criteria): self
+    public function setCriteria(Criteria $criteria): self
     {
         $this->criteria = $criteria;
 
@@ -160,7 +162,7 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
     /**
      * Get the value of issuer
      *
-     * @return string
+     * @return IssuerModel
      */
     public function getIssuer(): IssuerModel
     {

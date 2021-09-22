@@ -10,6 +10,7 @@ use DateTime;
 use JulienV\Openbadge\AbstractOpenBadge;
 use JulienV\Openbadge\Interfaces\AssertionInterface;
 use JulienV\Openbadge\Interfaces\BadgeClassInterface;
+use JulienV\Openbadge\Profiles\IdentityObject;
 
 class AssertionModel extends AbstractOpenBadge implements AssertionInterface
 {
@@ -28,17 +29,12 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
      */
     protected $type = 'Assertion';
 
-    /** TODO: use 	IdentityObject
-     * The recipient of the achievement.
+    /** The recipient of the achievement.
      * IdentityObject
      *
-     * @var array<mixed>
+     * @var IdentityObject
      */
-    protected $recipient = [
-        "type" => "email",
-        "hashed"=> false,
-        "identity"=>''
-    ];
+    protected $recipient;
 
     /**
      * IRI or document that describes the type of badge being awarded.
@@ -148,18 +144,12 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     }
 
 
-    /**
-     * @return array<mixed>
-     */
-    public function getRecipient(): array
+    public function getRecipient(): IdentityObject
     {
         return $this->recipient;
     }
 
-    /**
-     * @param array<mixed> $recipient
-     */
-    public function setRecipient(array $recipient): self
+    public function setRecipient(IdentityObject $recipient): self
     {
         $this->recipient = $recipient;
 
@@ -219,7 +209,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
      */
     public function setEmailRecipient(string $email): self
     {
-        $this->recipient['identity'] = $email;
+        $this->recipient->setIdentity($email);
         return $this;
     }
     /**
@@ -263,7 +253,7 @@ class AssertionModel extends AbstractOpenBadge implements AssertionInterface
     /**
      * Get the value of narrative
      */
-    public function getNarrative()
+    public function getNarrative(): string
     {
         return $this->narrative;
     }

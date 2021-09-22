@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace JulienV\Openbadge\Tests;
 
+use JulienV\Openbadge\AlignmentObject;
 use JulienV\Openbadge\BadgeClasses\BadgeModel;
+use JulienV\Openbadge\Criteria;
 use JulienV\Openbadge\Profiles\IssuerModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
@@ -45,9 +47,10 @@ class BadgeModelTest extends TestCase
     public function testCriteria()
     {
         $badgeModel = new BadgeModel();
-        $badgeModel->setCriteria(['test','array']);
+        $criteria = new Criteria();
+        $badgeModel->setCriteria($criteria);
 
-        $this->assertTrue($badgeModel->getCriteria()=== ['test','array']);
+        $this->assertTrue($badgeModel->getCriteria()=== $criteria);
         $this->expectException(TypeError::class);
         $badgeModel->setCriteria('string');
     }
@@ -55,11 +58,11 @@ class BadgeModelTest extends TestCase
     public function testAlignment()
     {
         $badgeModel = new BadgeModel();
-        $badgeModel->setAlignment(['test','array']);
+        $alignment = new alignmentObject();
+        $badgeModel->setAlignment($alignment);
 
-        $this->assertTrue($badgeModel->getAlignment()=== ['test','array']);
-        $this->expectException(TypeError::class);
-        $badgeModel->setAlignment('string');
+        $this->assertTrue($badgeModel->getAlignment()=== $alignment);
+
     }
 
     public function testName()

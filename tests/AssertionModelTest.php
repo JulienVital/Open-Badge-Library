@@ -7,6 +7,7 @@ namespace JulienV\Openbadge\Tests;
 use DateTime;
 use JulienV\Openbadge\Assertions\AssertionModel;
 use JulienV\Openbadge\BadgeClasses\BadgeModel;
+use JulienV\Openbadge\Profiles\IdentityObject;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
@@ -34,21 +35,13 @@ class AssertionModelTest extends TestCase
 
     public function testRecipient()
     {
-        $recipient = [
-            "type" => "email",
-            "hashed"=> false,
-            "identity"=>''
-        ];
+        $recipient = new IdentityObject();
         $this->assertion->setRecipient($recipient);
 
         $this->assertTrue($this->assertion->getRecipient()===$recipient);
 
         $this->assertion->setEmailRecipient('test@email.com');
-        $this->assertTrue($this->assertion->getRecipient()===[
-            "type" => "email",
-            "hashed"=> false,
-            "identity"=>'test@email.com'
-        ]);
+        $this->assertTrue($this->assertion->getRecipient()->getIdentity()=== 'test@email.com');
 
         $this->expectException(TypeError::class);
         $this->assertion->setEmailRecipient(false);
