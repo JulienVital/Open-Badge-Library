@@ -1,6 +1,6 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Assertions;
 
 /**
  * See https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#Assertion

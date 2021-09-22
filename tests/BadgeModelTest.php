@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace JulienV\Openbadge\Tests;
 
-use JulienV\Openbadge\BadgeModel;
+use JulienV\Openbadge\BadgeClasses\BadgeModel;
+use JulienV\Openbadge\Profiles\IssuerModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
@@ -75,9 +76,10 @@ class BadgeModelTest extends TestCase
     public function testIssuer()
     {
         $badgeModel = new BadgeModel();
-        $badgeModel->setIssuer('testIssuer');
+        $issuer = new IssuerModel();
+        $badgeModel->setIssuer($issuer);
 
-        $this->assertTrue($badgeModel->getIssuer()=== 'testIssuer');
+        $this->assertTrue($badgeModel->getIssuer()=== $issuer);
         $this->expectException(TypeError::class);
         $badgeModel->setIssuer(array());
     }

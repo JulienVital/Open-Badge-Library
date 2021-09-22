@@ -1,7 +1,8 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Profiles;
 
+use JulienV\Openbadge\AbstractOpenBadge;
 use JulienV\Openbadge\Interfaces\IssuerInterface;
 
 class IssuerModel extends AbstractOpenBadge implements IssuerInterface

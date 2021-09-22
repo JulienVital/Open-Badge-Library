@@ -1,8 +1,10 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\BadgeClasses;
 
+use JulienV\Openbadge\AbstractOpenBadge;
 use JulienV\Openbadge\Interfaces\BadgeClassInterface;
+use JulienV\Openbadge\Profiles\IssuerModel;
 
 class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
 {
@@ -39,7 +41,7 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
 
     /**
      *TODO ProfileObject
-     * @var mixed IRI or document describing the individual, entity, or organization that issued the badge.
+     * @var IssuerModel IRI or document describing the individual, entity, or organization that issued the badge.
      */
     protected $issuer ;
 
@@ -160,7 +162,7 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
      *
      * @return string
      */
-    public function getIssuer(): string
+    public function getIssuer(): IssuerModel
     {
         return $this->issuer;
     }
@@ -168,11 +170,11 @@ class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
     /**
      * Set the value of issuer
      *
-     * @param string $issuer
+     * @param IssuerModel $issuer
      *
      * @return self
      */
-    public function setIssuer(string $issuer): self
+    public function setIssuer(IssuerModel $issuer): self
     {
         $this->issuer = $issuer;
 

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace JulienV\Openbadge\Tests;
 
 use DateTime;
-use JulienV\Openbadge\AssertionModel;
-use JulienV\Openbadge\BadgeModel;
+use JulienV\Openbadge\Assertions\AssertionModel;
+use JulienV\Openbadge\BadgeClasses\BadgeModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 

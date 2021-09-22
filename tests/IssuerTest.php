@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace JulienV\OpenIssuer\Tests;
 
-use JulienV\Openbadge\IssuerModel;
+use JulienV\Openbadge\Profiles\IssuerModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
