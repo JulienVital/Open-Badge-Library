@@ -2,7 +2,7 @@
 
 namespace JulienV\Openbadge\Interfaces;
 
-use JulienV\Openbadge\Criteria;
+use JulienV\Openbadge\Assertions\Criteria;
 use JulienV\Openbadge\Profiles\IssuerModel;
 
 interface BadgeClassInterface

@@ -3,10 +3,10 @@
 namespace JulienV\Openbadge\BadgeClasses;
 
 use JulienV\Openbadge\AbstractOpenBadge;
-use JulienV\Openbadge\AlignmentObject;
+use JulienV\Openbadge\Utils\AlignmentObject;
 use JulienV\Openbadge\Interfaces\BadgeClassInterface;
 use JulienV\Openbadge\Profiles\IssuerModel;
-use JulienV\Openbadge\Criteria;
+use JulienV\Openbadge\Assertions\Criteria;
 
 class BadgeModel extends AbstractOpenBadge implements BadgeClassInterface
 {

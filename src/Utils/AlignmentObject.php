@@ -1,6 +1,6 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Utils;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 

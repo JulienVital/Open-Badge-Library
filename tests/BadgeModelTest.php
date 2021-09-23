@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace JulienV\Openbadge\Tests;
 
-use JulienV\Openbadge\AlignmentObject;
+use JulienV\Openbadge\Utils\AlignmentObject;
 use JulienV\Openbadge\BadgeClasses\BadgeModel;
-use JulienV\Openbadge\Criteria;
+use JulienV\Openbadge\Assertions\Criteria;
 use JulienV\Openbadge\Profiles\IssuerModel;
 use PHPUnit\Framework\TestCase;
 use TypeError;
