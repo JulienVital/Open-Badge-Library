@@ -9,19 +9,19 @@ class VerificationObject extends AbstractOpenBadge
     /**
      * Supported values for single assertion verification are HostedBadge and SignedBadge
      * @var string */
-    private $type;
+    protected $type;
 
     /** @var string */
-    private $startsWith;
+    protected $startsWith;
 
     /** @var string */
-    private $verificationProperty;
+    protected $verificationProperty;
 
     /** @var string */
-    private $allowedOrigins;
+    protected $allowedOrigins;
 
     /** @var mixed TODO: CryptographicKey */
-    private $creator;
+    protected $creator;
 
 
     /**

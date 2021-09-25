@@ -7,19 +7,19 @@ use JulienV\Openbadge\AbstractOpenBadge;
 class AlignmentObject extends AbstractOpenBadge
 {
     /** @var string	Name of the alignment. **/
-    private $targetName ;
+    protected $targetName ;
 
     /** @var string	URL linking to the official description of the alignment target, for example an individual standard within an educational framework. **/
-    private $targetUrl ;
+    protected $targetUrl ;
 
     /** @var string	Short description of the alignment target. **/
-    private $targetDescription ;
+    protected $targetDescription ;
 
     /** @var string	Name of the framework the alignment target. **/
-    private $targetFramework ;
+    protected $targetFramework ;
 
     /** @var string	If applicable, a locally unique string identifier that identifies the alignment target within its framework and/or targetUrl. **/
-    private $targetCode ;
+    protected $targetCode ;
 
     /**
      * Get the value of targetName

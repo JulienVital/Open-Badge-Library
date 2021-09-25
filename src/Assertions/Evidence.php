@@ -1,6 +1,6 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Assertions;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
@@ -10,39 +10,39 @@ class Evidence extends AbstractOpenBadge
      * The URI of a webpage presenting evidence of achievement.
      *  @var string
      **/
-    private $id ;
+    protected $id ;
 
     /**
      * A narrative that describes the evidence and process of achievement that led to an Assertion.
      * Text or Markdown Text
      *  @var string
      */
-    private $narrative;
+    protected $narrative;
 
     /**
      * 	A descriptive title of the evidence.
      *  @var string
      */
-    private $name ;
+    protected $name ;
 
     /**
     * A longer description of the evidence.
     *  @var string
     */
-    private $description ;
+    protected $description ;
 
     /**
      * A string that describes the type of evidence. For example, Poetry, Prose, Film.
      *  @var string
      */
-    private $genre ;
+    protected $genre ;
 
     /**
      * 	A description of the intended audience for a piece of evidence.
      *
      * @var string
      */
-    private $audience ;
+    protected $audience ;
 
 
     /**
@@ -155,5 +155,17 @@ class Evidence extends AbstractOpenBadge
         $this->name = $name;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        $array = get_object_vars($this);
+
+        if ($this->getId() && count(array_filter($array))==1){
+            return $this->getId();
+        }
+        $array = array_filter(['@context'=> "https://w3id.org/openbadges/v2"] + $array);
+
+        return $array ;
     }
 }

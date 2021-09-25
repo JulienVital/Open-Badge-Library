@@ -11,13 +11,13 @@ class Criteria extends AbstractOpenBadge
      *
      * @var string
      */
-    private $id ;
+    protected $id ;
 
     /**
      * A narrative of what is needed to earn the badge.
      * @var string text or Markdown Text
      */
-    private $narrative ;
+    protected $narrative ;
 
 
 

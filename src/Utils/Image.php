@@ -1,6 +1,6 @@
 <?php
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Utils;
 
 use JulienV\Openbadge\AbstractOpenBadge;
 
@@ -11,7 +11,7 @@ class Image extends AbstractOpenBadge
      *
      * @var string
      */
-    private $id ;
+    protected $id ;
 
 
     /**
@@ -19,7 +19,7 @@ class Image extends AbstractOpenBadge
      *
      * @var string
      */
-    private $caption ;
+    protected $caption ;
 
 
     /**
@@ -27,7 +27,7 @@ class Image extends AbstractOpenBadge
      *
      * @var string
      */
-    private $author ;
+    protected $author ;
 
 
     /**
@@ -82,5 +82,17 @@ class Image extends AbstractOpenBadge
         $this->author = $author;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        $array = get_object_vars($this);
+
+        if ($this->getId() && count(array_filter($array))==1){
+            return $this->getId();
+        }
+        $array = array_filter(['@context'=> "https://w3id.org/openbadges/v2"] + $array);
+
+        return $array ;
     }
 }

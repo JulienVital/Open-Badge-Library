@@ -15,7 +15,7 @@ class IdentityObject extends AbstractOpenBadge
      *
      * @var string
      */
-    private $identity;
+    protected $identity;
 
     /**
      * The property by which the recipient of a badge is identified.
@@ -26,14 +26,14 @@ class IdentityObject extends AbstractOpenBadge
      *
      * @var string
      */
-    private $type = 'email';
+    protected $type = 'email';
 
     /**
      * Whether or not the identity value is hashed.
      *
      * @var bool
      */
-    private $hashed;
+    protected $hashed;
 
     /**
      * If the recipient is hashed, this should contain the string used to salt the hash.
@@ -41,7 +41,7 @@ class IdentityObject extends AbstractOpenBadge
      *
      * @var string
      */
-    private $salt;
+    protected $salt;
 
 
     /**
