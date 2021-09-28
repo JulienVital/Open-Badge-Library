@@ -29,8 +29,6 @@ class EvidenceTest extends TestCase
         $this->assertEquals(\json_encode($evidence,JSON_UNESCAPED_SLASHES),
                 '{"@context":"https://w3id.org/openbadges/v2","id":"http://www.test.com/image.png","name":"Name of Evidence"}'
             );
-
-
     }
 
     public function  testNarrative()
