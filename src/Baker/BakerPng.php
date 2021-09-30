@@ -6,19 +6,22 @@
      * https://coderoad.ru/8842387/PHP-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9-iTXt-%D0%BA-%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8E-PNG
      */
 
-namespace JulienV\Openbadge;
+namespace JulienV\Openbadge\Baker;
 
-class Baker
+use JulienV\Openbadge\Interfaces\AssertionInterface;
+
+class BakerPng
 {
     private $dataEncode;
     private $key = 'openbadges';
     private $targetPath;
 
-    public function __construct($id, $assertion)
+    public function __construct(AssertionInterface $assertion)
     {
-        $this->id=$id;
-        $this->freeBadge =$assertion->getImage();
+        $this->id=$assertion->getId();
+        $this->freeBadge =$assertion->getbadge()->getImage();
         $this->dataEncode=json_encode($assertion);
+
     }
 
     public function makeBadge()

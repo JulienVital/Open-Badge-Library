@@ -1,0 +1,10 @@
+<?php
+
+namespace JulienV\Openbadge\Baker;
+
+use JulienV\Openbadge\Interfaces\AssertionInterface;
+
+class BakerSvg
+{
+   
+}

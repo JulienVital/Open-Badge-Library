@@ -10,28 +10,27 @@ use TypeError;
 
 class EvidenceTest extends TestCase
 {
-    function testReturnStringIFOnlyID(){
-
+    public function testReturnStringIFOnlyID()
+    {
         $evidence = new Evidence();
         $evidence->setId('http://www.test.com/image.png');
 
-        $this->assertEquals(\json_encode($evidence,JSON_UNESCAPED_SLASHES),'"http://www.test.com/image.png"');
-
-
+        $this->assertEquals(\json_encode($evidence, JSON_UNESCAPED_SLASHES), '"http://www.test.com/image.png"');
     }
 
-    function testJsonserialize(){
-
+    public function testJsonserialize()
+    {
         $evidence = new Evidence();
         $evidence->setId('http://www.test.com/image.png');
         $evidence->setName('Name of Evidence');
 
-        $this->assertEquals(\json_encode($evidence,JSON_UNESCAPED_SLASHES),
-                '{"@context":"https://w3id.org/openbadges/v2","id":"http://www.test.com/image.png","name":"Name of Evidence"}'
-            );
+        $this->assertEquals(
+            \json_encode($evidence, JSON_UNESCAPED_SLASHES),
+            '{"@context":"https://w3id.org/openbadges/v2","id":"http://www.test.com/image.png","name":"Name of Evidence"}'
+        );
     }
 
-    public function  testNarrative()
+    public function testNarrative()
     {
         $evidence = new Evidence();
         $evidence->setNarrative('test Narrative');
@@ -42,7 +41,7 @@ class EvidenceTest extends TestCase
         $evidence->setNarrative(false);
     }
 
-    public function  testName()
+    public function testName()
     {
         $evidence = new Evidence();
         $evidence->setName('test Name');
@@ -53,7 +52,7 @@ class EvidenceTest extends TestCase
         $evidence->setName(false);
     }
 
-    public function  testDescription()
+    public function testDescription()
     {
         $evidence = new Evidence();
         $evidence->setDescription('test Description');
@@ -64,7 +63,7 @@ class EvidenceTest extends TestCase
         $evidence->setDescription(false);
     }
 
-    public function  testGenre()
+    public function testGenre()
     {
         $evidence = new Evidence();
         $evidence->setGenre('test Genre');
@@ -75,7 +74,7 @@ class EvidenceTest extends TestCase
         $evidence->setGenre(false);
     }
 
-    public function  testAudience()
+    public function testAudience()
     {
         $evidence = new Evidence();
         $evidence->setAudience('test Audience');
@@ -85,6 +84,4 @@ class EvidenceTest extends TestCase
         $this->expectException(TypeError::class);
         $evidence->setAudience(false);
     }
-    
-    
 }
