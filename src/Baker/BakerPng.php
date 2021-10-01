@@ -26,10 +26,13 @@ class BakerPng
 
     public function makeBadge()
     {
+        var_dump($this->targetPath);
+
         $chunk = $this->phpTextChunk();
         $png = file_get_contents($this->freeBadge);
         $png2 = $this->addPngChunk($chunk, $png);
-        file_put_contents($this->targetPath, $png2);
+        return $png2;
+        //file_put_contents($this->targetPath, $png2);
     }
 
     private function phpTextChunk()
