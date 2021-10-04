@@ -8,6 +8,8 @@
 >Open Badges v2.0
 >IMS Final Release
 
+EXAMPLE : https://openbadge.julien-vital.dev/
+
 ## 🏠 [Homepage](https://github.com/JulienVital/Open-Badge-Library)
 
 ## Author
